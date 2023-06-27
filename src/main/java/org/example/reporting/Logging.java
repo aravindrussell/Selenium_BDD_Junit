@@ -7,7 +7,7 @@ public class Logging {
 
     // Initialize Log4j logs
 
-    private static Logger Log = Logger.getLogger(Logging.class.getName());//
+    private static Logger Log = Logger.getLogger(Logging.class.getName());
 
     // This is to print log for the beginning of the test case, as we usually run so many test cases as a test suite
 
@@ -54,4 +54,5 @@ public class Logging {
     public static void debug(String message) {
         Log.debug(message);
     }
+
 }

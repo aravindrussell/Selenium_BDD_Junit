@@ -23,6 +23,7 @@ public class ExtendReporting {
         extentSparkReporter = new ExtentSparkReporter(reportName);
         extentKlovReporter = new ExtentKlovReporter("Selenium BDD Jnuit")
                 .initWithDefaultSettings();
+        Logging.info("Creating extent report file");
         extentSparkReporter.config(
                 ExtentSparkReporterConfig.builder()
                         .theme(Theme.DARK)
@@ -36,11 +37,13 @@ public class ExtendReporting {
 
     public void createNewScenario(String scenarioName){
         extentTest = extentReports.createTest(scenarioName).log(Status.INFO,"Stating the Scenario <b>" + scenarioName + "</b>");
+        Logging.info("Stating the Scenario <b>" + scenarioName + "</b>");
         extentReports.flush();
     }
 
     public void loggingInfoInReport(String info){
         extentTest.log(Status.INFO,info);
+        Logging.info(info);
         extentReports.flush();
     }
 
