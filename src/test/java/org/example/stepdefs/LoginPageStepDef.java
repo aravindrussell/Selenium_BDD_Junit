@@ -1,31 +1,45 @@
 package org.example.stepdefs;
 
+import cucumber.api.java.Before;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.example.action.LoginAction;
+import org.example.manager.PageObjectManager;
+import org.example.manager.StaticObjectManager;
 
-import java.awt.*;
 import java.util.List;
 
 public class LoginPageStepDef {
-
-    LoginAction loginAction = new LoginAction();
+    
+    PageObjectManager pageObjectManager = new PageObjectManager();
 
     @Given("Launch the Application URL")
     public void launchTheApplicationURL() {
-        loginAction.getApplication("https://opensource-demo.orangehrmlive.com/");
+        pageObjectManager.getLoginAction().getApplication(pageObjectManager.getPropertiesUtility(StaticObjectManager.PROPERTIESFILEPATH).getProperty("ApplicationURL"));
+        pageObjectManager.getExtendReporting().loggingInfoInReport("Launching Application");
     }
 
     @Given("The user enter below username and password in text box")
     public void theUserEnterBelowUsernameAndPasswordInTextBox(DataTable dataTable) {
         List<String> loginDetails = dataTable.row(0);
-        loginAction.enterUsername(loginDetails.get(0));
-        loginAction.enterPassword(loginDetails.get(1));
+        pageObjectManager.getLoginAction().enterUsername(loginDetails.get(0));
+        pageObjectManager.getExtendReporting().loggingInfoInReport("Entering Username");
+        pageObjectManager.getLoginAction().enterPassword(loginDetails.get(1));
+        pageObjectManager.getExtendReporting().loggingInfoInReport("Entering Password");
     }
 
     @When("The user click on Login button")
     public void theUserClickOnLoginButton() {
-        loginAction.clickLoginButton();
+        pageObjectManager.getLoginAction().clickLoginButton();
+        pageObjectManager.getExtendReporting().loggingInfoInReport("Clicking Login Button");
+    }
+
+    @Given("The user enter {string} username and {string} password in text box")
+    public void theUserEnterUsernameAndPasswordInTextBox(String username, String password) {
+        pageObjectManager.getLoginAction().enterUsername(username);
+        pageObjectManager.getExtendReporting().loggingInfoInReport("Entering Username");
+        pageObjectManager.getLoginAction().enterPassword(password);
+        pageObjectManager.getExtendReporting().loggingInfoInReport("Entering Username");
     }
 }
