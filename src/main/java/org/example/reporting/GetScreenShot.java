@@ -13,15 +13,10 @@ import java.io.IOException;
 
 public class GetScreenShot {
 
-    private static WebDriver driver;
     private static PageObjectManager pageObjectManager = new PageObjectManager();
-    public GetScreenShot(){
-        this.driver = WebDriverUtility.webDriver;
-        PageFactory.initElements(driver, this);
-    }
 
     public static String takeScreenShot() throws IOException {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        TakesScreenshot takesScreenshot = (TakesScreenshot) WebDriverUtility.webDriver;
         File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
         String destination = System.getProperty("user.dir") + "/screenshots/"
                 +  pageObjectManager.getDateTimeUtility().getCurrentDateTime()

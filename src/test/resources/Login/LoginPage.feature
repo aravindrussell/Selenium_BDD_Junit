@@ -18,5 +18,5 @@ Feature: HRM Login Page
 
     Examples:
       | UserName | Password |
-      | aravind  | Russell  |
+      | admin    | admin123 |
       | arv      | asd      |

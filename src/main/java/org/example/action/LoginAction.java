@@ -19,6 +19,9 @@ public class LoginAction {
     @FindBy(xpath = "//button[@type='submit']")
     WebElement loginButton;
 
+    @FindBy(xpath = "//p[text()='Invalid credentials']")
+    WebElement invalidCredLabel;
+
     public LoginAction() {
         this.driver = WebDriverUtility.webDriver;
         PageFactory.initElements(driver, this);
@@ -39,4 +42,6 @@ public class LoginAction {
     public void clickLoginButton(){
         loginButton.click();
     }
+
+    public boolean getInvalidCredLabelDisplayed() { return invalidCredLabel.isDisplayed(); }
 }

@@ -55,4 +55,8 @@ public class Logging {
         Log.debug(message);
     }
 
+    public static void pass(String message) {
+        Log.info(message);
+    }
+
 }

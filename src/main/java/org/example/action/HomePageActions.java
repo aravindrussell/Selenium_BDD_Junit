@@ -19,10 +19,6 @@ public class HomePageActions {
         PageFactory.initElements(driver, this);
     }
 
-    public void verifyHomePageDisplayed(){
-        Assert.assertTrue(homePageDashboard.isDisplayed());
-    }
-
     public boolean getHomePageDisplayed(){
         return homePageDashboard.isDisplayed();
     }
