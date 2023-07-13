@@ -1,7 +1,7 @@
 Feature: HRM Login Page
 
   Background: Launching the application
-    Given Launch the Application URL
+#    Given Launch the Application URL
 
   @Login-Positive-Scenario
   Scenario: HomePage Displayed after logging with valid credentials
@@ -20,3 +20,10 @@ Feature: HRM Login Page
       | UserName | Password |
       | admin    | admin123 |
       | arv      | asd      |
+
+  @New_Scenario
+  Scenario: Using Data Tables
+    Given Printing following data to concol
+      | Name            | First Name | Last Name | Address              | age | DOB        |
+      | Aravind Russell | Aravind    | Russell   | 44 Main road podanur | 30  | 12/10/1992 |
+      | Ashmita Aravind | Ashmita    | Aravind   | 44 main road podanur | 26  | 30/12/1998 |

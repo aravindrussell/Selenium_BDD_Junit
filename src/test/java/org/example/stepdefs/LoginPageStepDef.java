@@ -9,6 +9,7 @@ import org.example.manager.PageObjectManager;
 import org.example.manager.StaticObjectManager;
 
 import java.util.List;
+import java.util.Map;
 
 public class LoginPageStepDef {
     
@@ -41,5 +42,11 @@ public class LoginPageStepDef {
         pageObjectManager.getExtendReporting().loggingInfoInReport("Entering Username");
         pageObjectManager.getLoginAction().enterPassword(password);
         pageObjectManager.getExtendReporting().loggingInfoInReport("Entering Username");
+    }
+
+    @Given("Printing following data to concol")
+    public void printingFollowingDataToConcol(DataTable dataTable) {
+        List<Map<String,String>> table_map = dataTable.asMaps();
+        System.out.println(table_map);
     }
 }

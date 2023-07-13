@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources",
         glue = {"org.example.stepdefs","org.example.runner"},
-        tags = "@Login-Negative-Scenario or @Login-Positive-Scenario",
+        tags = "@New_Scenario",
         dryRun = false,
         monochrome = true,
         plugin = { "pretty","json:target/cucumber-json/cucumber.json",
